@@ -1,5 +1,8 @@
 const car = document.getElementById('car');
-const touchArea = document.getElementById('touch-area');
+const game = document.getElementById('game');
+const background = document.getElementById('background');
+
+let carSpeed = 10; // Ajuste a velocidade do movimento do carrinho
 
 document.addEventListener('keydown', function(event) {
   if (event.keyCode === 39) { // Tecla da seta para a direita
@@ -7,23 +10,30 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-touchArea.addEventListener('touchstart', function() {
+document.getElementById('touch-area').addEventListener('touchstart', function() {
   moveCarRight();
 });
 
 function moveCarRight() {
   let currentLeft = parseInt(car.style.left) || 0;
-  let newLeft = currentLeft + 10; // Ajuste a velocidade de movimento do carrinho
+  let newLeft = currentLeft + carSpeed;
   car.style.left = newLeft + 'px';
-  adjustBackgroundPosition(newLeft);
+  adjustCamera(newLeft);
 }
 
-function adjustBackgroundPosition(carPosition) {
-  const gameWidth = document.getElementById('game').offsetWidth;
-  const background = document.getElementById('background');
-  
+function adjustCamera(carPosition) {
+  const gameWidth = game.offsetWidth;
+  const backgroundWidth = background.offsetWidth;
+  const maxBackgroundPosition = gameWidth - backgroundWidth;
+
   if (carPosition > gameWidth / 2) {
     let backgroundPosition = -(carPosition - gameWidth / 2);
-    background.style.transform = `translateX(${backgroundPosition}px)`;
+    
+    if (backgroundPosition < maxBackgroundPosition) {
+      backgroundPosition = maxBackgroundPosition;
+    }
+
+    game.style.left = -carPosition + gameWidth / 2 + 'px';
+    background.style.left = backgroundPosition + 'px';
   }
 }
