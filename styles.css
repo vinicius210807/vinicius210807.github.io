@@ -8,11 +8,12 @@ body {
 
 /* Container do jogo */
 #game {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw; /* Ocupa toda a largura da tela */
   height: 80vh; /* Altura adaptada para diferentes tamanhos de tela */
   overflow: hidden; /* Oculta elementos que saem do limite do jogo */
-  left: 0; /* Posição inicial do jogo */
   transition: left 0.2s ease-out; /* Transição suave para o movimento lateral */
 }
 
@@ -26,22 +27,12 @@ body {
   animation: moveBackground 10s linear infinite; /* Animação de movimento do fundo */
 }
 
-/* Animação do fundo */
-@keyframes moveBackground {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%); /* Movimento para a esquerda */
-  }
-}
-
 /* Estilo do carrinho */
 #car {
   position: absolute;
-  width: 10vw; /* Tamanho do carrinho relativo ao tamanho da tela */
-  height: 5vh; /* Ajuste relativo à altura da tela */
-  background-color: #f00; /* Cor do carrinho */
+  width: 500px; /* Tamanho do carrinho relativo ao tamanho da tela */
+  height: 1000px; /* Ajuste relativo à altura da tela */
+  background-image: url("WhatsApp\ Image\ 2024-06-05\ at\ 10.24.43.jpeg");
   bottom: 5vh; /* Distância do carrinho ao fundo do jogo */
   left: 5vw; /* Posição inicial do carrinho */
   z-index: 1000; /* Coloca o carrinho acima do fundo */
@@ -67,5 +58,15 @@ body {
   #car {
     width: 15vw;
     height: 7vh;
+  }
+}
+
+/* Animação do fundo */
+@keyframes moveBackground {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Movimento para a esquerda */
   }
 }
