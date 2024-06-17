@@ -1,72 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mensagem Especial</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            background-image: url('https://i.imgur.com/qr4zqsc.png'); /* Imagem de fundo */
-            background-size: cover;
-            background-position: center;
-            margin: 0; /* Remove margens padrão */
-            padding: 0; /* Remove preenchimento padrão */
-        }
-        .overlay {
-            position: relative; /* Posição relativa para conter elementos absolutos */           
-            text-align: center; /* Centraliza o conteúdo */
-            margin-top: 150px; /* Espaçamento do topo ajustado para dispositivos móveis */
-        }
-        .message {
-            font-size: 24px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .open-button {
-            position: absolute; /* Posição absoluta em relação ao .overlay */
-            bottom: 20px; /* Distância do botão até a parte inferior da .overlay */
-            left: 50%; /* Centraliza o botão horizontalmente */
-            transform: translateX(-50%); /* Ajusta para centralizar corretamente */
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #B22222;
-            color: white;
-        }
-        .new-image {
-            display: none;
-            max-width: 100%; /* Ajuste o tamanho conforme necessário */
-            height: auto; /* Mantém a proporção da imagem */
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Carrinho Retrowave</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="overlay">
-        <!-- Mensagem -->
-        <div class="message" id="message">Me dá uma chance?</div>
-        
-        <!-- Nova Imagem do Imgur (link direto da imagem) -->
-        <img src="https://i.imgur.com/83Ugjsr.png" alt="Nova Imagem" class="new-image" id="newImage">
-        
-        <!-- Botão -->
-        <button class="open-button" id="openButton">Abrir a Carta</button>
-    </div>
+  <div id="game">
+    <div id="background"></div>
+    <div id="car"></div>
+    <div id="touch-area" class="touch-area"></div> <!-- Área para controle por toque -->
+  </div>
 
-    <script>
-        document.getElementById('openButton').addEventListener('click', function() {
-            document.querySelector('.message').style.display = 'none'; // Esconde a mensagem
-            document.getElementById('openButton').style.display = 'none'; // Esconde o botão
-            document.getElementById('newImage').style.display = 'block'; // Mostra a nova imagem
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
