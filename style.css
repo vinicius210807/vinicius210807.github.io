@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..700&display=swap");
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    animation: fade-out linear both, colorize linear both;
+    animation-timeline: view();
+    animation-range: exit -10px, exit -100px;
+    background: linear-gradient(in hsl longer hue 40deg, #f66 0 0);
+    background-clip: text;
+  }
+  h2{
+    animation: fade-out linear both, colorize linear both;
+    animation-timeline: view();
+    animation-range: exit -10px, exit -100px;
+    background: linear-gradient(in hsl longer hue 40deg, #f66 0 0);
+    background-clip: text;
+  }
+
+  @keyframes colorize {
+    to {
+      font-weight: 600;
+      color: #0000;
+    }
+  }
+  @keyframes fade-out {
+    to {
+      scale: 150%;
+      opacity: 0;
+      filter: blur(5px);
+    }
+  }
+  img {
+    position: relative;
+    animation: scrollin cubic-bezier(0.23, -0.26, 0.78, 1.29) both, fade-out linear both;
+    animation-timeline: view();
+    animation-range: 1vh 50vh, exit -10px;
+    transform-origin: left;
+  }
+
+  @keyframes scrollin {
+    from {
+      scale: 0.3;
+      opacity: 0;
+      left: -25vh;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+      left: 0;
+    }
+  }
+  .path {
+    border-radius: 40vh 180vh 180vh 10vh;
+  }
+  .path .wheel {
+    offset-path: polygon(0 0, 97% 12%, 0% 18%, 100% 25%, 0% 33%, 96% 40%, 1% 49%, 100% 56%, 0% 66%, 100% 71%, 3% 81%, 100% 86%, 0% 92%, 100% 100%, 0 100%);
+    animation: followpath linear;
+    animation-timeline: scroll();
+  }
+
+  @keyframes followpath {
+    from {
+      offset-distance: 4%;
+    }
+    to {
+      offset-distance: 50%;
+    }
+  }
+  .path {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    top: 1em;
+    left: 0.5em;
+    width: 1rem;
+    height: 40vw;
+    background-size: calc(64px / 4.667) 64px, 64px calc(64px / 4.667);
+  }
+  .path .wheel {
+    width: 0px;
+    aspect-ratio: 1;
+    border: 1px solid #556B2F;
+    border-width: 0.4vw 1vw;
+    border-radius: 30%;
+  }
+
+  .path:after,
+.path:before {
+    text-align: center;
+    font-size: 0.5rem;
+    position: absolute;
+    inset: -0.5vw;
+    top: 1em;
+    opacity: 0.9;
+  }
+
+  .path:before {
+    top: unset;
+    bottom: 0.5em;
+  }
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  background-color: #F5F5DC;
+  color: #333333;
+}
+
+h1 {
+  font-wrap: balanced;
+  font-size: clamp(2rem, 7cqi, 10rem);
+  font-weight: 100;
+  color: #556B2F;
+}
+h2{
+  font-wrap: balanced;
+  font-size: 45px;
+  font-weight: 100;
+  color: #556B2F;
+}
+
+img {
+  max-height: 50%;
+  max-width: 50%;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+article {
+  width: min(60ch, 100% - 4rem);
+  margin: 0 auto;
+}
+.a {
+  text-decoration: none; /* Remove sublinhado padrão */
+  color: #556B2F; /* Cor do texto */
+  padding: 5px 10px; /* Espaçamento interno */
+  margin-right: 10px; /* Espaçamento entre os links */
+  border-radius: 15px; /* Borda arredondada */
+  background-color: #f0f0f0; /* Cor de fundo */
+}
+
+.a:hover {
+  background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
